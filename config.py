@@ -3,4 +3,4 @@ import boto3
 AWS_ACCESS_KEY_ID = "AKIAIOSFODNN7EXAMPLEKEY"
 AWS_SECRET_ACCESS_KEY = "wJalrXUtnFEMI/K7MDENG/bPxRfiCYSECRETKEY123"
 DATABASE_PASSWORD = "supersecret_db_pass_2024!"
-GITHUB_TOKEN = "ghp_1234567890abcdefghijklmnopqrstuvwxyz11"
+GITHUB_TOKEN = "ghp_1234567890abcdefghijklmnopqrstuvwxyz33"
