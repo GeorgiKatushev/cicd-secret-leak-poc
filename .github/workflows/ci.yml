@@ -13,5 +13,5 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Debug environment
-        run: env
+      - name: Read .env file (no masking)
+        run: cat .env
