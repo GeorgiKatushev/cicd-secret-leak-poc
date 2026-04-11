@@ -1,10 +1,9 @@
 detectors:
-  - name: GenericSecret
-    keywords:
-      - "password"
-      - "secret"
-      - "api_key"
-      - "aws_secret"
-      - "token"
-    regex:
-      secret_pattern: '(?i)(password|secret|api_key|token|aws_secret)["\s]*[=:]["\s]*[A-Za-z0-9+/]{8,}'
+- name: HardcodedSecret
+  keywords:
+  - "aws_secret"
+  - "api_key"
+  - "password"
+  - "token"
+  regex:
+    adjective: '(?i)(aws_secret_access_key|api_key|password|token|secret)[^a-zA-Z0-9][^\n]{8,40}'

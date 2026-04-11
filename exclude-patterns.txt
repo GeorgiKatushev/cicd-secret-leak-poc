@@ -1,0 +1,4 @@
+.git/
+trufflehog-config.yaml
+.pre-commit-config.yaml
+exclude-patterns.txt
