@@ -1,3 +1,3 @@
-AWS_ACCESS_KEY_ID = "AKIAIOSFODNN7EXAMPLEKEY1"
-AWS_SECRET_ACCESS_KEY = "wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY"
-GITHUB_TOKEN = "ghp_aBcDeFgHiJkLmNoPqRsTuVwXyZ012345678"
+AWS_SECRET_ACCESS_KEY = "wJalrXUtnFEMI/K7MDENG/bPxRfiCY"
+password = "mysupersecretpassword123"
+api_key = "sk-abcdefghijklmnopqrstuvwxyz123456"
