@@ -18,9 +18,22 @@ jobs:
           fetch-depth: 0
 
       - name: Run TruffleHog
+        id: trufflehog_scan
         uses: trufflesecurity/trufflehog@main
         with:
           path: ./
-          base: ${{ github.event.pull_request.base.sha }}
-          head: ${{ github.event.pull_request.head.sha }}
-          extra_args: --results=verified,unknown --config=trufflehog-config.yaml --exclude-paths=exclude-patterns.txt
+          base: ${{ github.event_name == 'pull_request' && github.event.pull_request.base.sha || github.event.before }}
+          head: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.sha || github.sha }}
+          extra_args: --results=verified,unknown --config=trufflehog-config.yaml --exclude-paths=exclude-patterns.txt --fail
+
+      - name: Print scan result
+        if: ${{ always() }}
+        run: |
+          if [ "${{ steps.trufflehog_scan.outcome }}" = "success" ]; then
+            echo "TruffleHog scan PASSED: no secrets found in selected result types."
+            echo "## TruffleHog Result: PASSED" >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "TruffleHog scan FAILED: potential secrets were found or scan errored."
+            echo "## TruffleHog Result: FAILED" >> "$GITHUB_STEP_SUMMARY"
+            exit 1
+          fi
