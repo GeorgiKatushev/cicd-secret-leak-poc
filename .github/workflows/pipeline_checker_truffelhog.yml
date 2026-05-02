@@ -37,3 +37,6 @@ jobs:
             echo "## TruffleHog Result: FAILED" >> "$GITHUB_STEP_SUMMARY"
             exit 1
           fi
+
+      - name: Run Custom Python Scanner
+        run: python scanner.py .
