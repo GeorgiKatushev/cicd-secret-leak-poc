@@ -26,6 +26,7 @@ SKIP_FILES = {
     "trufflehog-config.yaml",
     ".pre-commit-config.yaml",
     "exclude-patterns.txt",
+    "scanner.py",
 }
 
 # --- Directories to skip ---
