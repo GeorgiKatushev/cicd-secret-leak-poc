@@ -37,6 +37,7 @@ findings = []
 
 def scan_file(filepath):
     """Scan a single file line by line against all patterns."""
+    print(f"[SCAN] {filepath}")
     try:
         with open(filepath, "r", encoding="utf-8", errors="ignore") as f:
             for line_num, line in enumerate(f, 1):
@@ -54,6 +55,7 @@ def scan_file(filepath):
 
 def scan_directory(target):
     """Walk a directory and scan every non-binary file."""
+    print(f"[DIR] Scanning directory: {target}")
     for root, dirs, files in os.walk(target):
         # Skip unwanted directories
         dirs[:] = [d for d in dirs if d not in SKIP_DIRS]
